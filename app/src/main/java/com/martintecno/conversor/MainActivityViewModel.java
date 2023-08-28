@@ -27,7 +27,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
 
     public void convertir(String Smonto, boolean DolarEuro){
-
+        montoM.setValue(0.0);
         double monto = Double.parseDouble(Smonto);
 
         monto = DolarEuro ? monto * 0.92 : monto * 1.08;
