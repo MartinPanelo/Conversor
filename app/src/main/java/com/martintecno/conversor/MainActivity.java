@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioGroup;
 
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 binding.ETResultado.setEnabled(false);
-
+               // Log.d("monto", String.valueOf(binding.ETMonto.getText().length()));
                 vmMain.convertir(binding.ETMonto.getText().toString(),binding.RBTNDolarEuro.isChecked());
             }
         });

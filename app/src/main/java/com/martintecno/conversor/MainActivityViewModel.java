@@ -1,6 +1,7 @@
 package com.martintecno.conversor;
 import android.app.Application;
 import android.content.Context;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -27,10 +28,15 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
 
     public void convertir(String Smonto, boolean DolarEuro){
-        montoM.setValue(0.0);
-        double monto = Double.parseDouble(Smonto);
 
-        monto = DolarEuro ? monto * 0.92 : monto * 1.08;
+        if(Smonto.length() == 0){
+            montoM.setValue(0.0);
+            Toast.makeText(context, "Ingrese un valor valido", Toast.LENGTH_SHORT).show();
+        }else {
+            double monto = Double.parseDouble(Smonto);
+
+            monto = DolarEuro ? monto * 0.92 : monto * 1.08;
+        }
 
         montoM.setValue(monto);
     }
